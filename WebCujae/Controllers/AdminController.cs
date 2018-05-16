@@ -13,6 +13,7 @@ namespace  WebCujae.Controllers
     {
         protected ApplicationDbContext ApplicationDbContext { get; set; }
         protected UserManager<ApplicationUser> UserManager { get; set; }
+       
 
         public AdminController()
         {
@@ -30,10 +31,6 @@ namespace  WebCujae.Controllers
         {
             if (CurrentUser.Get == null)
                 return RedirectToAction("Login", "Account");
-            else if (CurrentUser.Get.UserName == "admin" && CurrentUser.Get.Email == "admin@cujae.edu.cu")
-            {
-                return RedirectToAction("UpdateAdminAccount", "Account");
-            }
             ViewBag.Notice = notice;
             return View();
         }
@@ -76,26 +73,31 @@ namespace  WebCujae.Controllers
             Session["data"] = text1;
             return RedirectToAction("Index", "Admin", new { notice = "Datos Guardados exitosamente!!!!!" });
         }
+      
         // GET: /Admin/Role
+        [HttpGet]
         public ActionResult AdminRole()
         {
-            List<RolesViewModels> roleList;
-            List<ApplicationUser> listUser=new INum();
-            using (ApplicationDbContext context = new ApplicationDbContext()) {
-                listUser=context.Users.ToList<ApplicationUser>();
+            List<RolesViewModels> list = new List<RolesViewModels>();
+            ApplicationDbContext dbContext = new ApplicationDbContext();
+            foreach (var i in dbContext.Users.ToList())
+            {
+                List<string> roleName=new List<string>();
+                foreach (var j in i.Roles.ToList())
+                {
+                    if (i.Roles.Count != 0)
+                        roleName.Add(ApplicationRoleManager.GetRoleNameById(j.RoleId));
+                }
+                list.Add(new RolesViewModels()
+                {
+                    userId=i.Id,
+                    Username=i.UserName,
+                    roleName=roleName
+               
+                });
             }
-            foreach (var e in listUser) {
-                roleList.Add(new RolesViewModels() { User=listUser., });
-            }
-
-                return View();
+            return View (list);
         }
-        [HttpPost]
-        // POST: /Admin/Role
-        public ActionResult AdminRole(List<RolesViewModels> listRole)
-        {
-
-            return View();
-        }
+       
     }
 }

@@ -108,18 +108,11 @@ namespace WebCujae.Controllers
                         UserId=data.Id,
                         NumberIdentification=data.NumberIdentification
                     });
-                    if (data.Email == "admin@cujae.edu.cu")
+                    if (data.Name==null)
                     {
-                        var userClaims=UserManager.GetClaims(CurrentUser.Get.UserId);
-                        if (userClaims.Any())
-                        {
-                            foreach (var item in userClaims)
-                            {
-                                UserManager.RemoveClaim(CurrentUser.Get.UserId, item);
-                            }
-                        }
+                        return RedirectToAction("UpdateAdminAccount", "Account");
                     }
-                        await UserManager.AddClaimAsync(data.Id, new Claim(ClaimTypes.UserData, juser));
+                    await UserManager.AddClaimAsync(data.Id, new Claim(ClaimTypes.UserData, juser));
                     return RedirectToAction("Index", "Admin");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -128,8 +121,6 @@ namespace WebCujae.Controllers
                     return View(model);
             }
         }
-
-        //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
@@ -235,18 +226,16 @@ namespace WebCujae.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult UpdateAdminAccount(UpdateAdminAccountViewModel model)
         {
-            if (ModelState.IsValid)
-            {
                 HashAlgorithm algorithm = MD5.Create();
-                algorithm.ComputeHash(Encoding.UTF8.GetBytes(model.Password));
-                string id = CurrentUser.Get.UserId;
+            ApplicationDbContext dbContext = new ApplicationDbContext();
+            var query=dbContext.Users.FirstOrDefault();
+                string id = query.Id;
                 ApplicationUser user = UserManager.FindById(id);
                 user.Name = model.Name;
                 user.LastName = model.LastName;
                 user.Email = model.Email;
                 user.NumberIdentification = model.NumberIdentification;
                 user.EmailConfirmed = true;
-               // user.PasswordHash=algorithm.ToString()
            
                 var result = UserManager.Update(user);
                 if (result.Succeeded) {
@@ -260,12 +249,10 @@ namespace WebCujae.Controllers
                         UserId = data.Id,
                         NumberIdentification = data.NumberIdentification
                     });
-                    //UserManager.RemoveClaim(id, new Claim(ClaimTypes.UserData, juser));
-                    //UserManager.AddClaim(id, new Claim(ClaimTypes.UserData, juser));
+                    UserManager.AddClaim(id, new Claim(ClaimTypes.UserData, juser));
                     return RedirectToAction("Login", "Account");
                 }
                 AddErrors(result);
-            }
 
             // If we got this far, something failed, redisplay form
             return View(model);

@@ -6,10 +6,10 @@ using System.Web;
 
 namespace WebCujae.Models
 {
-    public class RolesViewModels
+    public class RolesViewModels 
     {
-        public ApplicationUser User { get; set; }
-        public bool roleRevisor { get; set; }
-        public bool roleRedactor { get; set; }
+        public string userId { get; set; }
+        public string Username { get; set; }
+        public List<String> roleName{ get; set; }
     }
 }

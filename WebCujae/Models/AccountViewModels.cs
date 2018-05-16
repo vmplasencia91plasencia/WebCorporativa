@@ -144,16 +144,5 @@ namespace WebCujae.Models
         [DataType(DataType.EmailAddress)]
         [Display(Name = "correo")]
         public string Email { get; set; }
-
-        [Required]
-        [StringLength(100, ErrorMessage = "La {0} debe tener {2} caracteres.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "Contraseña")]
-        public string Password { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirmar contraseña")]
-        [Compare("Password", ErrorMessage = "Las contraseñas no coinciden")]
-        public string ConfirmPassword { get; set; }
     }
 }

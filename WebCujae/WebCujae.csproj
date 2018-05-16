@@ -209,7 +209,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201805020005330_Newaaaa.cs" />
-    <Compile Include="Migrations\201805020005330_Newaaaa.Designer.cs">
+    <Compile Include="Migrations\201805020005330_Newaaaa.designer.cs">
       <DependentUpon>201805020005330_Newaaaa.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />

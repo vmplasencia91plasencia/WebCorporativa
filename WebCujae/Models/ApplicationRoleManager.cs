@@ -30,6 +30,13 @@ namespace WebCujae.Models
             return roleManager.FindByName("admin");
         }
 
+        public static String GetRoleNameById(string id)
+        {
+            var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+            return roleManager.FindById(id).Name;
+        }
+
         public static void CreateRole()
         {
             var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
