@@ -71,7 +71,7 @@
                                             <tr>
                                                 <td>
                                                    
-                                                        @Html.ActionLink(" ", "Details", new { id = i.userId}, new { @class = "fa fa-edit fa-2x" })
+                                                        @Html.ActionLink(" ", "EditRole", new { id = i.userId}, new { @class = "fa fa-edit fa-2x" })
                                                   
                                                 </td>
                                             </tr>
@@ -94,8 +94,21 @@
     </section>
 
 }
-
+<!-- DataTables -->
 <script src="/Content/Admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/Content/Admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+@*<script src="/Content/Admin/bower_components/jquery/dist/jquery.min.js"></script>*@
+<!-- Bootstrap 3.3.7 -->
+@*<script src="/Content/Admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>*@
+@*<script src="/Content/Admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>*@
+<!-- SlimScroll -->
+@*<script src="/Content/Admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>*@
+<!-- FastClick -->
+@*<script src="/Content/Admin/bower_components/fastclick/lib/fastclick.js"></script>*@
+<!-- AdminLTE App -->
+@*<script src="/Content/Admin/dist/js/adminlte.min.js"></script>*@
+<!-- AdminLTE for demo purposes -->
+@*<script src="/Content/Admin/dist/js/demo.js"></script>*@
 <!-- Page script -->
 <script>
     $(function () {

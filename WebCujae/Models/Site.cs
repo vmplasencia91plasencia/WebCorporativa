@@ -13,8 +13,10 @@ namespace WebCujae.Models
         [Key]
         public int SiteID { get; set; }
         public string name { get; set; }
-        public virtual ICollection<Data> Datas { get; set; }
 
+
+        public virtual ICollection<Data> Datas { get; set; }
         public virtual Undergraduate Undergraduate { get; set; }
+        public virtual Specialty Specialty { get; set; }
     }
 }

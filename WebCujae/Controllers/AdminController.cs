@@ -13,7 +13,8 @@ namespace  WebCujae.Controllers
     {
         protected ApplicationDbContext ApplicationDbContext { get; set; }
         protected UserManager<ApplicationUser> UserManager { get; set; }
-       
+        private ApplicationRoleManager roleManager;
+
 
         public AdminController()
         {
@@ -73,7 +74,7 @@ namespace  WebCujae.Controllers
             Session["data"] = text1;
             return RedirectToAction("Index", "Admin", new { notice = "Datos Guardados exitosamente!!!!!" });
         }
-      
+
         // GET: /Admin/Role
         [HttpGet]
         public ActionResult AdminRole()
@@ -82,22 +83,54 @@ namespace  WebCujae.Controllers
             ApplicationDbContext dbContext = new ApplicationDbContext();
             foreach (var i in dbContext.Users.ToList())
             {
-                List<string> roleName=new List<string>();
+                List<string> roleName = new List<string>();
                 foreach (var j in i.Roles.ToList())
                 {
                     if (i.Roles.Count != 0)
                         roleName.Add(ApplicationRoleManager.GetRoleNameById(j.RoleId));
                 }
-                list.Add(new RolesViewModels()
+                if (i.UserName != "admin")
                 {
-                    userId=i.Id,
-                    Username=i.UserName,
-                    roleName=roleName
-               
-                });
+                    list.Add(new RolesViewModels()
+                    {
+                        userId = i.Id,
+                        Username = i.UserName,
+                        roleName = roleName
+
+                    });
+                }
             }
-            return View (list);
+            return View(list);
         }
-       
+
+        [HttpGet]
+        public ActionResult EditRole(string id)
+        {
+            ApplicationUser user = UserManager.FindById(id);
+            ViewBag.Description = user.Name + " " + user.LastName;
+            var roleUser = user.Roles;
+            if (roleUser.Count != 0)
+                ViewBag.Name = ApplicationRoleManager.GetRoleNameById(roleUser.FirstOrDefault().RoleId);
+            else
+                ViewBag.Name = null;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult EditRole(string id,RoleName role)
+        {
+            ApplicationUser user = UserManager.FindById(id);
+            ViewBag.NameFull= user.Name + " " + user.LastName;
+            if (ModelState.IsValid) {
+                ApplicationDbContext contexto = new ApplicationDbContext();
+                var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(contexto));
+                user.Roles.Clear();
+                UserManager.Update(user);
+                manager.AddToRole(user.Id, role.name);
+                return RedirectToAction("AdminRole");
+            }
+
+            return View();
+        }
+            
     }
 }

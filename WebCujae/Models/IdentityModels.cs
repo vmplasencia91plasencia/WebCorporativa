@@ -38,12 +38,19 @@ namespace WebCujae.Models
                 .HasMany<Data>(s => s.Datas)
                 .WithRequired(g => g.Site)
                 .WillCascadeOnDelete();
+            modelBuilder.Entity<Specialty>()
+                .HasRequired(s => s.Site);
+
+            modelBuilder.Entity<Specialty>()
+                 .HasMany(s => s.Coordinates);
 
             base.OnModelCreating(modelBuilder);
         }
         public virtual DbSet<Site> Site { get; set; }
         public virtual DbSet<Data> Data { get; set; }
         public virtual DbSet<Undergraduate> Undergraduate { get; set; }
+        public virtual DbSet<Specialty> Specialty { get; set; }
+       public virtual DbSet<Coordinate> Coordinate { get; set; }
 
         public static ApplicationDbContext Create()
         {

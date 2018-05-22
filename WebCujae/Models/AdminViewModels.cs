@@ -12,4 +12,13 @@ namespace WebCujae.Models
         public string Username { get; set; }
         public List<String> roleName{ get; set; }
     }
+
+    public class RoleName
+    {
+
+        [Required]
+        [Display(Name = "rol")]
+        public string name { get; set; }
+
+    }
 }
