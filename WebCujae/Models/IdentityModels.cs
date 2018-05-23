@@ -18,9 +18,12 @@ namespace WebCujae.Models
         }
 
         //Add atributes for the table dbo.AspNetUser
+        public int SpecialtyId { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
         public string NumberIdentification { get; set; }
+        public virtual  Specialty Specialty { get; set; }
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -33,22 +36,19 @@ namespace WebCujae.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ApplicationUser>();
-            modelBuilder.Entity<Site>()
-                .HasMany<Data>(s => s.Datas)
-                .WithRequired(g => g.Site)
-                .WillCascadeOnDelete();
-            modelBuilder.Entity<Specialty>()
-                .HasRequired(s => s.Site);
+            modelBuilder.Entity<ApplicationUser>()
+                .HasOptional(b => b.Specialty)
+                .WithRequired(ad => ad.ApplicationUser);
 
             modelBuilder.Entity<Specialty>()
-                 .HasMany(s => s.Coordinates);
+               .HasRequired(br => br.Coordinate)
+               .WithOptional(aj => aj.Specialty);
 
             base.OnModelCreating(modelBuilder);
         }
-        public virtual DbSet<Site> Site { get; set; }
-        public virtual DbSet<Data> Data { get; set; }
-        public virtual DbSet<Undergraduate> Undergraduate { get; set; }
+        //public virtual DbSet<Site> Site { get; set; }
+        //public virtual DbSet<Data> Data { get; set; }
+        //public virtual DbSet<Undergraduate> Undergraduate { get; set; }
         public virtual DbSet<Specialty> Specialty { get; set; }
        public virtual DbSet<Coordinate> Coordinate { get; set; }
 

@@ -116,10 +116,10 @@ namespace  WebCujae.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult EditRole(string id,RoleName role)
+        public ActionResult EditRole(string id, RoleName role)
         {
             ApplicationUser user = UserManager.FindById(id);
-            ViewBag.NameFull= user.Name + " " + user.LastName;
+            ViewBag.NameFull = user.Name + " " + user.LastName;
             if (ModelState.IsValid) {
                 ApplicationDbContext contexto = new ApplicationDbContext();
                 var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(contexto));
@@ -131,6 +131,12 @@ namespace  WebCujae.Controllers
 
             return View();
         }
-            
+        [HttpGet]
+        public ActionResult AdminAddMaestrias()
+        {
+            return View();
+        }
+
+
     }
 }
