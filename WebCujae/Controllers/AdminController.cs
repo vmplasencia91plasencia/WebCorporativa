@@ -6,10 +6,10 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using System.Linq;
-using System.Collections;
 
 namespace  WebCujae.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         protected ApplicationDbContext ApplicationDbContext { get; set; }
@@ -27,12 +27,11 @@ namespace  WebCujae.Controllers
         {
             return View();
         }
+        [Authorize]
         [HttpGet]
         // POST: /Admin/Index/5
         public ActionResult Index(string notice)
         {
-            if (CurrentUser.Get == null)
-                return RedirectToAction("Login", "Account");
             ViewBag.Notice = notice;
             return View();
         }
@@ -192,5 +191,6 @@ namespace  WebCujae.Controllers
             ApplicationDbContext.Dispose();
             return View(result);
         }
+        
     }
 }

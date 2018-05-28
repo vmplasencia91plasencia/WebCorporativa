@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace WebCujae.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public HomeController()

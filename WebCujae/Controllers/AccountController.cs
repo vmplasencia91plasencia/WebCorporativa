@@ -112,7 +112,7 @@ namespace WebCujae.Controllers
                     {
                         return RedirectToAction("UpdateAdminAccount", "Account");
                     }
-                    await UserManager.AddClaimAsync(data.Id, new Claim(ClaimTypes.UserData, juser));
+                     UserManager.AddClaim(data.Id, new Claim(ClaimTypes.UserData, juser));
                     return RedirectToAction("Index", "Admin");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
