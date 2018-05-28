@@ -1,0 +1,95 @@
+﻿@using WebCujae.Models
+@model List<Specialty>
+@{
+    ViewBag.Title = "AdminListMaestrias";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section bodyAdmin{
+    <section class="content-header">
+        <h1>
+            Edite o elimine las maestrias o especialidades registradas en el sistema
+            <small>gestione maestrias o especialidades</small>
+        </h1>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Listado de maestrias y especialidades</h3>
+                    </div>
+                    <div class="box-body">
+                                <table id="example2" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Zona</th>
+                                            <th>Tipo</th>
+                                            <th>Creación</th>
+                                            <th>Categoría</th>
+                                            <th>Co Nombre</th>
+                                            <th>Co Teléfono</th>
+                                            <th>Co Correo</th>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var i in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                     @i.name
+                                                </td>
+                                                <td>
+                                                        @i.zone 
+                                                </td>
+                                                <td>
+                                                        @i.type
+                                                </td>
+                                                <td>
+                                                        @i.creacion
+                                                </td>
+                                                <td>
+                                                        @i.category
+                                                </td>
+                                                <td>
+                                                        @i.nameCoordinador
+                                                </td>
+                                                <td>
+                                                        @i.phoneCoordinador
+                                                </td>
+                                                <td>
+                                                        @i.mailCoordinador  @Html.ActionLink(" ", "DeleteMaestriasEspecialidad", new { id = i.SpecialtyId }, new { @class = "fa fa-remove fa-2x", @style = "margin-left:5px;color:#006633;" }) @Html.ActionLink("  ", "EditMaestriaEspecialidad", new { id = i.SpecialtyId }, new { @class = "fa fa-edit fa-2x", @style = "margin-left:5px;color:#006633;" })
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    <tfoot>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                      
+                        <!-- /.box-footer-->
+                    </div>
+                </div>
+    </section>
+
+}
+<!-- DataTables -->
+<script src="/Content/Admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/Content/Admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- Page script -->
+<script>
+    $(function () {
+        $('#example1').DataTable()
+        $('#example2').DataTable({
+            'paging': true,
+            'lengthChange': false,
+            'searching': true,
+            'ordering': true,
+            'info': true,
+            'autoWidth': true
+        })
+    })
+</script>
+

@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
 
 namespace  WebCujae.Controllers
 {
@@ -136,7 +137,60 @@ namespace  WebCujae.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult AdminAddMaestrias(Specialty model)
+        {
+            ApplicationUser data = UserManager.FindById(CurrentUser.Get.UserId);
+            if (ModelState.IsValid)
+            {
+                using (var context = new ApplicationDbContext())
+                {
+                    Specialty specialty = new Specialty()
+                    {
+                        name = model.name,
+                        zone = model.zone,
+                        type = model.type,
+                        actualizacion = DateTime.Today,
+                        category = model.category,
+                        creacion = model.creacion,
+                        nameCoordinador = model.name,
+                        phoneCoordinador = model.phoneCoordinador,
+                        mailCoordinador = model.mailCoordinador,
+                        UserId = data.Id,
+                    };
+                    context.Specialty.Add(specialty);
+                    context.SaveChanges();
+                    context.Dispose();
+                }
+            }
 
+            return RedirectToAction("AdminListMaestrias");
+        }
+        public ActionResult AdminListMaestrias()
+        {
+            ApplicationDbContext applicationDb = new ApplicationDbContext();
+            List<Specialty> Listado = applicationDb.Specialty.ToList();
+            applicationDb.Dispose();
+            return View(Listado);
+        }
 
+        public ActionResult DeleteMaestriasEspecialidad(int id)
+        {
+            ApplicationDbContext applicationDb = new ApplicationDbContext();
+            Specialty result = applicationDb.Specialty.Find(id);
+            applicationDb.Specialty.Remove(result);
+            applicationDb.SaveChanges();
+            ApplicationDbContext.Dispose();
+            return RedirectToAction("AdminListMaestrias");
+        }
+        public ActionResult EditMaestriaEspecialidad(int id)
+        {
+            ApplicationDbContext applicationDb = new ApplicationDbContext();
+            Specialty result = applicationDb.Specialty.Find(id);
+            applicationDb.Specialty.Remove(result);
+            applicationDb.SaveChanges();
+            ApplicationDbContext.Dispose();
+            return View(result);
+        }
     }
 }

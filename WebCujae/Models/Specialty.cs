@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -10,26 +11,43 @@ namespace WebCujae.Models
     {
         [Key]
         public int SpecialtyId { get; set; }
-        //public int ApplicationUserId { get; set; }
+
+        public string UserId { get; set; }
+
         [Required]
-        [Display(Name ="area")]
-        public int zone { get; set; }
+        [Display(Name ="Área")]
+        public string zone { get; set; }
+
         [Required]
-        [Display(Name = "nombre")]
+        [Display(Name = "Nombre")]
         public string name { get; set; }
+
         [Required]
-        [Display(Name = "tipo")]
+        [Display(Name = "Tipo")]
         public string type { get; set; }
-       
-        [Required]
-        [Display(Name = "actualización")]
+
         public DateTime actualizacion { get; set; }
+
         [Required]
-        [Display(Name = "categoria")]
+        [Display(Name = "Fecha de creación")]
+        public string creacion { get; set; }
+
+        [Required]
+        [Display(Name = "categoría")]
         public string category { get; set; }
 
-      
-        public virtual Coordinate Coordinate { get; set; }
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        [Required]
+        [Display(Name = "Nombre del coordinador")]
+        public string nameCoordinador { get; set; }
+
+        [Required]
+        [Display(Name = "Teléfono del coordinador")]
+        public string phoneCoordinador { get; set; }
+
+        [Required]
+        [Display(Name = "Correo del coordinador")]
+        [EmailAddress]
+        public string mailCoordinador { get; set; }
+
     }
 }

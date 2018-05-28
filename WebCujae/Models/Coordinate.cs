@@ -11,14 +11,14 @@ namespace WebCujae.Models
         [Key]
         public int CoordinateId { get; set; }
         [Required]
-        [Display(Name = "nombre completo")]
+        [Display(Name = "Nombre")]
         public string name { get; set; }
         [Required]
-        [Display(Name = "telefono")]
+        [Display(Name = "Teléfono")]
         public string phone { get; set; }
         [Required]
         [EmailAddress]
-        [Display(Name = "correo")]
+        [Display(Name = "Correo")]
         public string mail { get; set; }
         public virtual Specialty Specialty { get; set; }
     }

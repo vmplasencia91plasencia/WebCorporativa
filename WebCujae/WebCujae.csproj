@@ -208,13 +208,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805230222227_new.cs" />
-    <Compile Include="Migrations\201805230222227_new.Designer.cs">
-      <DependentUpon>201805230222227_new.cs</DependentUpon>
+    <Compile Include="Migrations\201805242220435_new14.cs" />
+    <Compile Include="Migrations\201805242220435_new14.Designer.cs">
+      <DependentUpon>201805242220435_new14.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805230238090_new2.cs" />
-    <Compile Include="Migrations\201805230238090_new2.Designer.cs">
-      <DependentUpon>201805230238090_new2.cs</DependentUpon>
+    <Compile Include="Migrations\201805242312086_new141.cs" />
+    <Compile Include="Migrations\201805242312086_new141.Designer.cs">
+      <DependentUpon>201805242312086_new141.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -7450,6 +7450,8 @@
     <Content Include="Views\Admin\AdminEditRole.cshtml" />
     <Content Include="Views\Admin\EditRole.cshtml" />
     <Content Include="Views\Admin\AdminAddMaestrias.cshtml" />
+    <Content Include="Views\Admin\AdminListMaestrias.cshtml" />
+    <Content Include="Views\Admin\EditMaestriaEspecialidad.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Content\Admin\bower_components\moment\moment.d.ts" />
@@ -7458,11 +7460,11 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805230222227_new.resx">
-      <DependentUpon>201805230222227_new.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805242220435_new14.resx">
+      <DependentUpon>201805242220435_new14.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805230238090_new2.resx">
-      <DependentUpon>201805230238090_new2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805242312086_new141.resx">
+      <DependentUpon>201805242312086_new141.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
