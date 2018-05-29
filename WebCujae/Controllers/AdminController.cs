@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Http.ModelBinding;
 
 namespace  WebCujae.Controllers
 {
@@ -191,6 +192,34 @@ namespace  WebCujae.Controllers
             ApplicationDbContext.Dispose();
             return View(result);
         }
-        
+        [HttpGet]
+        public ActionResult addPremios()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult addPremios(Award model)
+        {
+            if (ModelState.IsValid)
+            {
+                List<String> a=new List<string>();
+                a= model.autores.ToList();
+
+                string[] split = a.ToArray()[0].Split(',');
+                foreach (var e in split)
+                {
+                    a.Add(e);
+                }
+                Award newaward = new Award() {
+                    name = model.name,
+                    año = model.año,
+                    facultad = model.facultad,
+                    autores = a
+                };
+            }
+            return View();
+        }
+
     }
 }

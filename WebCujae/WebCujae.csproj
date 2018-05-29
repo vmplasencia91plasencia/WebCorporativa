@@ -216,6 +216,10 @@
     <Compile Include="Migrations\201805242312086_new141.Designer.cs">
       <DependentUpon>201805242312086_new141.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805291752165_new13.cs" />
+    <Compile Include="Migrations\201805291752165_new13.Designer.cs">
+      <DependentUpon>201805291752165_new13.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModels.cs" />
@@ -224,6 +228,7 @@
     <Compile Include="Models\Coordinate.cs" />
     <Compile Include="Models\CurrentUser.cs" />
     <Compile Include="Models\Data.cs" />
+    <Compile Include="Models\Award.cs" />
     <Compile Include="Models\Specialty.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -7452,6 +7457,7 @@
     <Content Include="Views\Admin\AdminAddMaestrias.cshtml" />
     <Content Include="Views\Admin\AdminListMaestrias.cshtml" />
     <Content Include="Views\Admin\EditMaestriaEspecialidad.cshtml" />
+    <Content Include="Views\Admin\addPremios.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Content\Admin\bower_components\moment\moment.d.ts" />
@@ -7465,6 +7471,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805242312086_new141.resx">
       <DependentUpon>201805242312086_new141.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805291752165_new13.resx">
+      <DependentUpon>201805291752165_new13.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
