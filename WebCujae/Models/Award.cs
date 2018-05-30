@@ -20,7 +20,7 @@ namespace WebCujae.Models
 
         [Required]
         [Display(Name = "Autores")]
-        public virtual ICollection<String> autores { get; set; }
+        public string autores { get; set; }
 
         [Required]
         [Display(Name = "Año")]

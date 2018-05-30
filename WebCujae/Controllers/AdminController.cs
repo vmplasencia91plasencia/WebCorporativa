@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http.ModelBinding;
 
-namespace  WebCujae.Controllers
+namespace WebCujae.Controllers
 {
     [Authorize]
     public class AdminController : Controller
@@ -121,7 +121,8 @@ namespace  WebCujae.Controllers
         {
             ApplicationUser user = UserManager.FindById(id);
             ViewBag.NameFull = user.Name + " " + user.LastName;
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 ApplicationDbContext contexto = new ApplicationDbContext();
                 var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(contexto));
                 user.Roles.Clear();
@@ -203,23 +204,48 @@ namespace  WebCujae.Controllers
         {
             if (ModelState.IsValid)
             {
-                List<String> a=new List<string>();
-                a= model.autores.ToList();
-
-                string[] split = a.ToArray()[0].Split(',');
-                foreach (var e in split)
+                Award newaward = new Award()
                 {
-                    a.Add(e);
-                }
-                Award newaward = new Award() {
                     name = model.name,
                     año = model.año,
                     facultad = model.facultad,
-                    autores = a
+                    autores = model.autores
                 };
+                ApplicationDbContext applicationDb = new ApplicationDbContext();
+                applicationDb.Award.Add(newaward);
+                applicationDb.SaveChanges();
+                ApplicationDbContext.Dispose();
             }
             return View();
+
+        }
+        [HttpGet]
+        public ActionResult ListPremios()
+        {
+            ApplicationDbContext applicationDb = new ApplicationDbContext();
+            List<Award> result = new List<Award>();
+            result=applicationDb.Award.ToList();
+            applicationDb.Dispose();
+            return View(result);
+        }
+        public ActionResult DeletePremio(int id)
+        {
+            ApplicationDbContext applicationDb = new ApplicationDbContext();
+            Award result = applicationDb.Award.Find(id);
+            applicationDb.Award.Remove(result);
+            applicationDb.SaveChanges();
+            ApplicationDbContext.Dispose();
+            return RedirectToAction("ListPremios");
         }
 
+        public ActionResult EditPremio(int id)
+        {
+            ApplicationDbContext applicationDb = new ApplicationDbContext();
+            Award result = applicationDb.Award.Find(id);
+            applicationDb.Award.Remove(result);
+            applicationDb.SaveChanges();
+            ApplicationDbContext.Dispose();
+            return View(result);
+        }
     }
 }

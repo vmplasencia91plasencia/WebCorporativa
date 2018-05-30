@@ -1,8 +1,12 @@
-﻿@using WebCujae.Models
+﻿
+@{
+    ViewBag.Title = "EditPremio";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using WebCujae.Models
 @model Award
 @{
-    ViewBag.Title = "addPremios";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     List<SelectListItem> listArea = new List<SelectListItem>();
     listArea.Add(new SelectListItem
     {
@@ -68,8 +72,8 @@
 @section bodyAdmin{
     <section class="content-header">
         <h1>
-           Premios
-            <small>registre un premio</small>
+            Premios
+            <small>Edite un premio</small>
         </h1>
     </section>
     <section class="content">
@@ -77,7 +81,7 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Inserte un premio</h3>
+                        <h3 class="box-title">Modifique el premio</h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
@@ -91,10 +95,10 @@
                                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                                 <div class="form-group has-feedback">
                                                     <div class="col-sm-2">
-                                                        @Html.LabelFor(m=>m.name)
+                                                        @Html.LabelFor(m => m.name)
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        @Html.TextAreaFor(model => model.name, new { @class = "form-control" ,@rows="2",@placeholder="Inserte el nombre del premio"})
+                                                    <div class="col-md-5">
+                                                        @Html.TextAreaFor(model => model.name, new { @class = "form-control", @rows = "2", @placeholder = "Inserte el nombre del premio" })
                                                         @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
@@ -114,8 +118,8 @@
                                                         <div class="col-sm-2">
                                                             @Html.LabelFor(m => m.autores)
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            @Html.TextAreaFor(m => m.autores, new { @class = "form-control", @type = "text",@row="3", @placeholder = "Escriba el nombre de los autores separado por coma" })
+                                                        <div class="col-md-5">
+                                                            @Html.TextAreaFor(m => m.autores, new { @class = "form-control", @type = "text", @row = "3", @placeholder = "Escriba el nombre de los autores separado por coma" })
                                                             @Html.ValidationMessageFor(m => m.autores, "", new { @class = "text-danger" })
                                                         </div>
                                                     </div>
@@ -149,7 +153,7 @@
             </div>
         </div>
     </section>
-    }
+}
 <script src="/Content/Admin/bower_components/select2/dist/js/select2.full.min.js"></script>
 <script>
     $(function () {
@@ -157,4 +161,5 @@
         $('.select2').select2()
     })
 </script>
+
 
