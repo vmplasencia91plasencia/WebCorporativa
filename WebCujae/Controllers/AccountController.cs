@@ -101,11 +101,11 @@ namespace WebCujae.Controllers
                 case SignInStatus.Success:
                     var data = UserManager.Find(model.UserName,model.Password);
                     var juser = JsonConvert.SerializeObject(new CurrentUser {
-                        Email=data.Email,
-                        Name=data.Name,
-                        LastName=data.LastName,
-                        UserName=data.UserName,
-                        UserId=data.Id,
+                        Email = data.Email,
+                        Name = data.Name,
+                        LastName = data.LastName,
+                        UserName = data.UserName,
+                        UserId = data.Id,
                         NumberIdentification=data.NumberIdentification
                     });
                     if (data.Name==null)

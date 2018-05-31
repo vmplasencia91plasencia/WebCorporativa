@@ -33,9 +33,6 @@ namespace WebCujae.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-           
-           
-
             base.OnModelCreating(modelBuilder);
         }
         //public virtual DbSet<Site> Site { get; set; }

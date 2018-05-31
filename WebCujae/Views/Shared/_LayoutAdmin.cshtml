@@ -1,6 +1,10 @@
-﻿@{
-    WebCujae.Models.CurrentUser user;
-    user = new WebCujae.Models.CurrentUser();
+﻿@using WebCujae.Models
+@using Microsoft.AspNet.Identity.EntityFramework;
+@using Microsoft.AspNet.Identity;
+@{
+   
+
+
  }
 <!DOCTYPE html>
 <html>
@@ -59,16 +63,16 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <span class="fa fa-user fa-2x"></span>
-                                <span class="hidden-xs">@*@WebCujae.Models.CurrentUser.Get.UserName*@</span>
+                                <span class="hidden-xs">@WebCujae.Models.CurrentUser.Get.UserName</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header" style="background-color:#f9f9f9">
                                     <p>
                                         <address>
-                                            <strong> Nombre:</strong> @*WebCujae.Models.CurrentUser.Get.Name @WebCujae.Models.CurrentUser.Get.LastName*@ <br>
-                                            <strong> CI:</strong> @*WebCujae.Models.CurrentUser.Get.NumberIdentification*@<br>
-                                            <strong> Correo:</strong> @*WebCujae.Models.CurrentUser.Get.Email*@<br>
+                                            <strong> Nombre:</strong> WebCujae.Models.CurrentUser.Get.Name @WebCujae.Models.CurrentUser.Get.LastName<br>
+                                            <strong> CI:</strong>WebCujae.Models.CurrentUser.Get.NumberIdentification<br>
+                                            <strong> Correo:</strong>WebCujae.Models.CurrentUser.Get.Email<br>
                                             <strong> Hora:</strong> <label id="reloj" style="font-size:15px;"></label>
                                         </address>
                                     </p>
@@ -110,24 +114,28 @@
                     <li>@Html.ActionLink("Eventos", "AdminEvento", "Admin", null, null)</li>
                     <li>@Html.ActionLink("Pregrado", "AdminPregrado", "Admin", null, null)</li>
                     <li>@Html.ActionLink("Roles", "AdminRole", "Admin", null, null)</li>
-                    <li class="treeview">
-                        <a href="#">
-                            <span>Maestrias-Especialidad</span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li>@Html.ActionLink("Insertar", "AdminAddMaestrias", "Admin", null, null)</li>
-                            <li>@Html.ActionLink("Listar", "AdminListMaestrias", "Admin", null, null)</li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <span>Premios</span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li>@Html.ActionLink("Insertar", "addPremios", "Admin", null, null)</li>
-                            <li>@Html.ActionLink("Listar", "ListPremios", "Admin", null, null)</li>
-                        </ul>
-                    </li>
+                    @if(ApplicationRoleManager.AsingRoleUser(CurrentUser.Get.UserId,ApplicationRoleManager.GetRoleNameByName("investigador"))|| ApplicationRoleManager.AsingRoleUser(CurrentUser.Get.UserId,ApplicationRoleManager.GetRoleNameByName("admin")))
+                    {
+                        <li class="treeview">
+                            <a href="#">
+                                <span>Investigación</span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>@Html.ActionLink("Insertar-Maestria", "AdminAddMaestrias", "Admin", null, null)</li>
+                                <li>@Html.ActionLink("Listar-Maestria", "AdminListMaestrias", "Admin", null, null)</li>
+                                <li>@Html.ActionLink("Insertar-Premio", "addPremios", "Admin", null, null)</li>
+                                <li>@Html.ActionLink("Listar-Premio", "ListPremios", "Admin", null, null)</li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="treeview">
+                            <a href="#" value="disabled">
+                                <span>Investigación</span>
+                            </a>
+                        </li>
+                    }
                 </ul>
             </section>
             <!-- /.sidebar -->

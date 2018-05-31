@@ -37,16 +37,39 @@ namespace WebCujae.Models
             return roleManager.FindById(id).Name;
         }
 
+        public static String GetRoleNameByName(string name)
+        {
+            var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+            return roleManager.FindByName(name).Id;
+        }
+
+        public static bool AsingRoleUser(string userId,string roleId) {
+            ApplicationDbContext dbContext = new ApplicationDbContext();
+            ApplicationUser user=dbContext.Users.Find(userId);
+            List<IdentityUserRole> result = user.Roles.ToList();
+            dbContext.Dispose();
+            foreach (var i in result)
+            {
+                if (i.RoleId.Equals(roleId))
+                    break;
+                    return true;
+            }
+            return false;
+        }
+
         public static void CreateRole()
         {
             var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
             var roleManager = new RoleManager<IdentityRole>(roleStore);
-            if (!roleManager.RoleExists("redactor") && !roleManager.RoleExists("revisor"))
+            if (!roleManager.RoleExists("redactor") && !roleManager.RoleExists("revisor")&& !roleManager.RoleExists("investigador"))
             {
                 var applicationRoleRedactor = new IdentityRole("redactor");
                 var applicationRevisor = new IdentityRole("revisor");
+                var applicationInvestigador = new IdentityRole("investigador");
                 roleManager.Create(applicationRevisor);
                 roleManager.Create(applicationRoleRedactor);
+                roleManager.Create(applicationInvestigador);
 
             }
         }
