@@ -13,6 +13,6 @@ namespace WebCujae.Models
 
         public virtual ICollection<Data> Datas { get; set; }
         public virtual Undergraduate Undergraduate { get; set; }
-        public virtual Specialty Specialty { get; set; }
+        //public virtual Specialty Specialty { get; set; }
     }
 }
