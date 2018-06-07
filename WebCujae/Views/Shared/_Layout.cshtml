@@ -10,24 +10,8 @@
     <!-- CSS
     ================================================== -->
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-
-    <!-- Fontawesome Icon font -->
-    <link rel="stylesheet" href="/Content/Home/css/font-awesome.min.css">
-    <!-- bootstrap.min -->
-    <link rel="stylesheet" href="/Content/Home/css/jquery.fancybox.css">
-    <!-- bootstrap.min -->
-    <link rel="stylesheet" href="/Content/Home/css/bootstrap.css">
-    <!-- bootstrap.min -->
-    <link rel="stylesheet" href="/Content/Home/css/owl.carousel.css">
-    <!-- bootstrap.min -->
-    <link rel="stylesheet" href="/Content/Home/css/slit-slider.css">
-    <!-- bootstrap.min -->
-    <link rel="stylesheet" href="/Content/Home/css/animate.css">
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/Content/Home/css/main.css">
-    <link rel="stylesheet" href="/Content/Home/css/noticias.css">
-    <link rel="stylesheet" href="/Content/Home/css/picture.css">
+    @Styles.Render("~/Content/Home/css")
+    @Scripts.Render("~/bundles/modernizr")
 
 
 
@@ -157,26 +141,11 @@
     </footer>
     <!-- Essential jQuery Plugins
     ================================================== -->
-    <!-- Main jQuery -->
-    <script src="/Content/Home/js/jquery-1.11.1.min.js"></script>
-    <!-- Twitter Bootstrap -->
-    <script src="/Content/Home/js/bootstrap.min.js"></script>
-    <!-- Single Page Nav -->
-    <script src="/Content/Home/js/jquery.singlePageNav.min.js"></script>
-    <!-- jquery.fancybox.pack -->
-    <script src="/Content/Home/js/jquery.fancybox.pack.js"></script>
-    <!-- Google Map API -->
-    <!-- Owl Carousel -->
-    <script src="/Content/Home/js/owl.carousel.min.js"></script>
-    <!-- jquery easing -->
-    <script src="/Content/Home/js/jquery.easing.min.js"></script>
-    <!-- Fullscreen slider -->
-    <script src="/Content/Home/js/jquery.slitslider.js"></script>
-    <script src="/Content/Home/js/jquery.ba-cond.min.js"></script>
-    <!-- onscroll animation -->
-    <script src="/Content/Home/js/wow.min.js"></script>
-    <!-- Custom Functions -->
-    <script src="/Content/Home/js/main.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/owl")
+    @Scripts.Render("~/bundles/wow")
+    @Scripts.Render("~/bundles/main")
     <script>
         $(document).ready(function () {
 

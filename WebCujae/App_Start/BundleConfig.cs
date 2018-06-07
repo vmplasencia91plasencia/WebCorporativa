@@ -9,23 +9,42 @@ namespace WebCujae
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
-
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+                        "~/Content/Home/js/jquery-1.11.1.min.js",
+                         "~/Content/Home/js/jquery.singlePageNav.min.js",
+                         "~/Content/Home/js/jquery.fancybox.pack.js",
+                          "~/Content/Home/js/jquery.easing.min.js",
+                           "~/Content/Home/js/jquery.slitslider.js",
+                           "~/Content/Home/js/jquery.ba-cond.min.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                        "~/Content/Home/js/bootstrap.min.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/owl").Include(
+                         "~/Content/Home/js/owl.carousel.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/wow").Include(
+                         "~/Content/Home/js/wow.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/main").Include(
+                        "~/Content/Home/js/main.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                      "~/Content/Home/js/modernizr-2.6.2.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                      "~/Content/Home/js/modernizr-2.6.2.min.js"));
+
+            bundles.Add(new StyleBundle("~/Content/Home/css").Include(
+                      "~/Content/Home/css/font-awesome.min.css",
+                       "~/Content/Home/css/jquery.fancybox.css",
+                       "~/Content/Home/css/bootstrap.css",
+                       "~/Content/Home/css/owl.carousel.css",
+                       "~/Content/Home/css/slit-slider.css",
+                        "~/Content/Home/css/animate.css",
+                        "~/Content/Home/css/main.css",
+                        "~/Content/Home/css/noticias.css",
+                      "~/Content/Home/css/picture.css"));
         }
     }
 }
