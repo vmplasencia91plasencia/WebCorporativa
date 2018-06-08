@@ -6920,6 +6920,14 @@
     <Content Include="Content\Home\js\owl.carousel.min.js" />
     <Content Include="Content\Home\js\validators.js" />
     <Content Include="Content\Home\js\wow.min.js" />
+    <Content Include="Content\Home\time-line\css\reset.css" />
+    <Content Include="Content\Home\time-line\css\style.css" />
+    <Content Include="Content\Home\time-line\css\test.css" />
+    <Content Include="Content\Home\time-line\img\cd-arrow.svg" />
+    <Content Include="Content\Home\time-line\js\jquery-2.1.4.js" />
+    <Content Include="Content\Home\time-line\js\jquery.mobile.custom.min.js" />
+    <Content Include="Content\Home\time-line\js\main.js" />
+    <Content Include="Content\Home\time-line\js\modernizr.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -7451,6 +7459,10 @@
     <Content Include="Content\Admin\dist\css\adminlte.min.css.map" />
     <Content Include="Content\Admin\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="Content\Admin\plugins\input-mask\phone-codes\phone-codes.json" />
+    <Content Include="Content\Home\time-line\partials\_layout.scss" />
+    <Content Include="Content\Home\time-line\partials\_mixins.scss" />
+    <Content Include="Content\Home\time-line\partials\_variables.scss" />
+    <Content Include="Content\Home\time-line\scss\style.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\AdminEvento.cshtml" />
     <Content Include="Views\Admin\AdminPregrado.cshtml" />
@@ -7469,6 +7481,9 @@
     <Content Include="Views\Admin\EditPremio.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <Content Include="Views\Home\Universidad.cshtml" />
+    <Content Include="Views\Home\Maestrias.cshtml" />
+    <Content Include="Views\Home\Especialidades.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Content\Admin\bower_components\moment\moment.d.ts" />

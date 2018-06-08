@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Maestrias";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using WebCujae.Models;
+@model List<Specialty>
+
+@section body
+    {
+    <main class="site-content" role="main">
+        <!-- Service section -->
+        <section id="service" style="margin-top:10%;">
+            <div class="container">
+                <div class="row">
+                    <div class="sec-title text-center wow animated fadeInDown">
+                        <h2>Maestria</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">Listado de especialidades</div>
+                        <div class="panel-body">
+                            <table id="example2" class="table table-bordered table-striped" style="shape-margin:100px;color:black">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Zona</th>
+                                        <th>Categoría</th>
+                                        <th>Co Nombre</th>
+                                        <th>Co Teléfono</th>
+                                        <th>Co Correo</th>
+                                </thead>
+                                <tbody>
+                                    @foreach (var i in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @i.name
+                                            </td>
+                                            <td>
+                                                @i.zone
+                                            </td>
+                                            <td>
+                                                @i.category
+                                            </td>
+                                            <td>
+                                                @i.nameCoordinador
+                                            </td>
+                                            <td>
+                                                @i.phoneCoordinador
+                                            </td>
+                                            <td>
+                                                @i.mailCoordinador
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end portfolio section -->
+        <!-- Testimonial section -->
+        <!-- end Contact section -->
+    </main>
+

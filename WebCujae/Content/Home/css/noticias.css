@@ -33,4 +33,14 @@
         text-decoration: underline;
     }
 
+.date {
+    font-style: italic;
+    color: black
+}
+
+    .date:hover {
+        font-style:normal;
+        color: #424242;
+    }
+
 

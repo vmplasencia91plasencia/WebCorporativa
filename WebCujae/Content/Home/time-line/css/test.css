@@ -1,0 +1,9 @@
+﻿.date {
+    font-style: italic;
+    color: black
+}
+
+    .date:hover {
+        color: #424242;
+    }
+

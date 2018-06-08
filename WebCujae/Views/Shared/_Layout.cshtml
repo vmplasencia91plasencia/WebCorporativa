@@ -9,14 +9,11 @@
 
     <!-- CSS
     ================================================== -->
-
     @Styles.Render("~/Content/Home/css")
     @Scripts.Render("~/bundles/modernizr")
 
-
-
     <!-- Modernizer Script for old Browsers -->
-    <script src="/Content/Home/js/modernizr-2.6.2.min.js"></script>
+   @*<script src="/Content/Home/js/modernizr-2.6.2.min.js"></script>*@ 
 
 </head>
 
@@ -62,6 +59,10 @@
                     </div>
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
+                            @Html.ActionLink("Universidad", "Universidad", "Home", null, null)
+                        </li>
+                        </li>
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Estudio</a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>@Html.ActionLink("Pregrado", "Pregrado", "Home", null, null)</li>
@@ -71,8 +72,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Investigacion </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Publicaciones</a></li>
-                                <li><a href="#">Lineas de Investigaci&oacute;n</a></li>
+                                <li>@Html.ActionLink("Maestrias", "Maestrias", "Home", null, null)</li>
+                                <li>@Html.ActionLink("Especialidades", "Especialidades", "Home", null, null)</li>
                                 <li><a href="#">Proyectos de Investigaci&oacute;n</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#">Cooperaci&oacute;n</a></li>
@@ -146,6 +147,12 @@
     @Scripts.Render("~/bundles/owl")
     @Scripts.Render("~/bundles/wow")
     @Scripts.Render("~/bundles/main")
+   @* <script src="/Content/Home/time-line/js/modernizr.js"></script> <!-- Modernizr -->
+    <script src="/Content/Home/time-line/js/main.js"></script> <!-- Resource jQuery -->
+    <script src="/Content/Home/time-line/js/jquery.mobile.custom.min.js"></script>*@
+
+    @*<script src="/Content/Home/time-line/js/jquery-2.1.4.js"></script>*@
+   
     <script>
         $(document).ready(function () {
 
@@ -178,7 +185,6 @@
         }, function () {
             $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
         });
-
     </script>
     @RenderBody()
 </body>
