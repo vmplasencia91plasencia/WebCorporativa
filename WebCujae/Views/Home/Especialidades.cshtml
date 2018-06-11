@@ -13,76 +13,77 @@
             <div class="container">
                 <div class="row">
                     <div class="sec-title text-center wow animated fadeInDown">
-                        <h2>Especialidad</h2>
+                        <h2>Especialidades</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="panel panel-success">
-                        <div class="panel-heading">Listado de especialidades</div>
-                    <div class="panel-body">
-                        <table id="example2" class="table table-bordered table-striped" style="shape-margin:100px;color:black">
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Zona</th>
-                                    <th>Categoría</th>
-                                    <th>Co Nombre</th>
-                                    <th>Co Teléfono</th>
-                                    <th>Co Correo</th>
-                            </thead>
-                            <tbody>
-                                @foreach (var i in Model)
-                                {
+                        <div class="panel-heading">Listado de maestrias</div>
+                        <div class="panel-body">
+                            <div class="col-md-4">
+                                <div class="input-group input-group-sm" style="margin-bottom:30px">
+                                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                                    <input id="filtrar" type="text" class="form-control" placeholder="Busqueda">
+                                </div>
+                            </div>
+                            <table class="table table-hover" style="shape-margin:100px;color:black">
+                                <thead>
                                     <tr>
-                                        <td>
-                                            @i.name
-                                        </td>
-                                        <td>
-                                            @i.zone
-                                        </td>
-                                        <td>
-                                            @i.category
-                                        </td>
-                                        <td>
-                                            @i.nameCoordinador
-                                        </td>
-                                        <td>
-                                            @i.phoneCoordinador
-                                        </td>
-                                        <td>
-                                            @i.mailCoordinador
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                            <tfoot>
-                            </tfoot>
-                        </table>
-                     </div>
+                                        <th class="text-center">Nombre</th>
+                                        <th class="text-center">Zona</th>
+                                        <th class="text-center">Categoría</th>
+                                        <th class="text-center">Co Nombre</th>
+                                        <th class="text-center">Co Teléfono</th>
+                                        <th class="text-center">Co Correo</th>
+                                </thead>
+                                <tbody class="buscar">
+                                    @foreach (var i in Model)
+                                    {
+                                        <tr>
+                                            <td class="text-center">
+                                                @i.name
+                                            </td>
+                                            <td class="text-center">
+                                                @i.zone
+                                            </td>
+                                            <td class="text-center">
+                                                @i.category
+                                            </td>
+                                            <td class="text-center">
+                                                @i.nameCoordinador
+                                            </td>
+                                            <td class="text-center">
+                                                @i.phoneCoordinador
+                                            </td>
+                                            <td class="text-center">
+                                                @i.mailCoordinador
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
                     </div>
                 </div>
-                </div>
+            </div>
         </section>
         <!-- end portfolio section -->
         <!-- Testimonial section -->
         <!-- end Contact section -->
     </main>
-  <!-- DataTables -->
-<script src="/Content/Admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="/Content/Admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- Page script -->
-<script>
-    $(function () {
-        $('#example1').DataTable()
-        $('#example2').DataTable({
-            'paging': true,
-            'lengthChange': false,
-            'searching': true,
-            'ordering': true,
-            'info': true,
-            'autoWidth': true
-        })
-    })
-</script>
 }
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        (function ($) {
+            $('#filtrar').keyup(function () {
+                var rex = new RegExp($(this).val(), 'i');
+                $('.buscar tr').hide();
+                $('.buscar tr').filter(function () {
+                    return rex.test($(this).text());
+                }).show();
+            })
+        }(jQuery));
+    });
+</script>

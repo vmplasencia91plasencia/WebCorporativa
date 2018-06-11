@@ -35,6 +35,9 @@ namespace WebCujae
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                       "~/Content/Home/js/modernizr-2.6.2.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/boostrapjs").Include(
+                     "~/Content/Home/js/bootstrap.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/Home/css").Include(
                       "~/Content/Home/css/font-awesome.min.css",
                        "~/Content/Home/css/jquery.fancybox.css",

@@ -40,31 +40,31 @@ namespace WebCujae.Controllers
         {
             ApplicationDbContext applicationDb = new ApplicationDbContext();
             List<Specialty> Listado = applicationDb.Specialty.ToList();
-            applicationDb.Dispose();
+            List<Specialty> maestrias = new List<Specialty>();
             foreach (var i in Listado)
             {
                 if (i.type.Equals("especialidad"))
                 {
-                    Listado.Remove(i);
+                    maestrias.Add(i);
                 }
             }
-
-            return View(Listado);
+            applicationDb.Dispose();
+            return View(maestrias);
         }
         public ActionResult Especialidades()
         {
             ApplicationDbContext applicationDb = new ApplicationDbContext();
             List<Specialty> Listado = applicationDb.Specialty.ToList();
-            applicationDb.Dispose();
+            List<Specialty> especialidades = new List<Specialty>();
             foreach (var i in Listado)
             {
                 if (i.type.Equals("maestria"))
                 {
-                    Listado.Remove(i);
+                    especialidades.Add(i);
                 }
             }
-           
-            return View(Listado);
+            applicationDb.Dispose();
+            return View(especialidades);
         }
     }
 }

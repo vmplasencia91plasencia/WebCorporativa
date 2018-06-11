@@ -20,38 +20,44 @@
                 </div>
                 <div class="row">
                     <div class="panel panel-success">
-                        <div class="panel-heading">Listado de especialidades</div>
+                        <div class="panel-heading">Listado de maestrias</div>
                         <div class="panel-body">
-                            <table id="example2" class="table table-bordered table-striped" style="shape-margin:100px;color:black">
+                            <div class="col-md-4">
+                                <div class="input-group input-group-sm" style="margin-bottom:30px">
+                                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                                    <input id="filtrar" type="text" class="form-control" placeholder="Busqueda">
+                                </div>
+                            </div>
+                            <table class="table table-hover" style="shape-margin:100px;color:black">
                                 <thead>
                                     <tr>
-                                        <th>Nombre</th>
-                                        <th>Zona</th>
-                                        <th>Categoría</th>
-                                        <th>Co Nombre</th>
-                                        <th>Co Teléfono</th>
-                                        <th>Co Correo</th>
+                                        <th class="text-center">Nombre</th>
+                                        <th class="text-center">Zona</th>
+                                        <th class="text-center">Categoría</th>
+                                        <th class="text-center">Co Nombre</th>
+                                        <th class="text-center">Co Teléfono</th>
+                                        <th class="text-center">Co Correo</th>
                                 </thead>
-                                <tbody>
+                                <tbody class="buscar">
                                     @foreach (var i in Model)
                                     {
                                         <tr>
-                                            <td>
+                                            <td class="text-center">
                                                 @i.name
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 @i.zone
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 @i.category
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 @i.nameCoordinador
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 @i.phoneCoordinador
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 @i.mailCoordinador
                                             </td>
                                         </tr>
@@ -69,4 +75,20 @@
         <!-- Testimonial section -->
         <!-- end Contact section -->
     </main>
+    }
+<script type="text/javascript">
+      $(document).ready(function () {
+          (function ($) {
+              $('#filtrar').keyup(function () {
+                  var rex = new RegExp($(this).val(), 'i');
+                  $('.buscar tr').hide();
+                  $('.buscar tr').filter(function () {
+                      return rex.test($(this).text());
+                  }).show();
+              })
+          }(jQuery));
+      });
+</script>
+
+ 
 
