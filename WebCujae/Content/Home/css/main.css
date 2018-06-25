@@ -1432,3 +1432,66 @@ textarea.form-control {
     font-weight: bold;
     -webkit-text-stroke: 1.0px black;
 }
+
+
+#content12 .content-center {
+    background: #00ba66;
+    padding: 30px;
+    height: 300px;
+    overflow: hidden;
+}
+
+    #content12 .content-center h3 {
+        margin: 0;
+        margin-bottom: 20px;
+        color: #fff;
+        font-size: 24px;
+        text-transform: capitalize;
+        margin-top: 20px;
+        font-weight: 400;
+        letter-spacing: 2px;
+    }
+
+    #content12 .content-center p {
+        color: rgb(255, 255, 255);
+        /* font-size: 12px; */
+    }
+
+#content12 .content-right {
+    background: #313131;
+    padding: 30px;
+    height: 300px;
+    overflow: hidden;
+}
+
+    #content12 .content-right h3 {
+        margin: 20px 0 20px 0;
+        line-height: 32px;
+        color: #00ba66;
+        font-size: 16px;
+        text-transform: capitalize;
+        letter-spacing: 1px;
+    }
+
+    #content12 .content-right p {
+        color: #fff;
+        font-size: 12px;
+    }
+
+.nopaddingnomargin {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden;
+}
+
+.services-content {
+    padding: 30px 20px 20px 89px;
+    margin-top: 30px;
+    background: #ffffff;
+    border: 1px solid #cecece;
+    text-align: left;
+    position: relative;
+    z-index: 9;
+    box-shadow: 2px 2px 4px rgba(72, 72, 72, 0.34);
+}
+

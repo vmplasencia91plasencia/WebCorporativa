@@ -32,7 +32,7 @@ namespace WebCujae.Controllers
         {
             return View();
         }
-        public ActionResult Universidad()
+        public ActionResult MisionVision()
         {
             return View();
         }
