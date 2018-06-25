@@ -1484,6 +1484,7 @@ textarea.form-control {
     overflow: hidden;
 }
 
+
 .services-content {
     padding: 30px 20px 20px 89px;
     margin-top: 30px;
@@ -1494,4 +1495,20 @@ textarea.form-control {
     z-index: 9;
     box-shadow: 2px 2px 4px rgba(72, 72, 72, 0.34);
 }
+
+.services .icon {
+    color: #9e015e;
+    font-size: 38px;
+    padding-left: 15px;
+    float: left;
+    background: #9e015e;
+    width: 90px;
+    position: absolute;
+    top: 40%;
+    bottom: 0;
+    left: 12px;
+    border-top: 1px solid #03a9f4;
+    z-index: 9;
+}
+
 
