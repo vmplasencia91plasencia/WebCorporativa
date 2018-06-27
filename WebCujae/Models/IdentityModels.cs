@@ -40,6 +40,8 @@ namespace WebCujae.Models
         //public virtual DbSet<Undergraduate> Undergraduate { get; set; }
         public virtual DbSet<Specialty> Specialty { get; set; }
         public virtual DbSet<Award> Award { get; set; }
+        public virtual DbSet<Event> Event { get; set; }
+        public virtual DbSet<Url> Url { get; set; }
         //public virtual DbSet<Coordinate> Coordinate { get; set; }
 
         public static ApplicationDbContext Create()

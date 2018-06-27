@@ -36,6 +36,21 @@
                                 }
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <h4><i class="fa fa-nombre-evento"></i> Nombre del Evento</h4>
+                                </div>
+                                @using (Html.BeginForm("File", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <div class="form-group">
+                                        <input id="imageUploadFile" class="form-control" type="file" name="file" required style="padding-bottom:50px" />
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="box-body pad">
