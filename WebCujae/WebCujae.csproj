@@ -236,6 +236,7 @@
     <Compile Include="Models\ApplicationRoleManager.cs" />
     <Compile Include="Models\Autor.cs" />
     <Compile Include="Models\CKEditors.cs" />
+    <Compile Include="Models\ComunidadUniversitaria.cs" />
     <Compile Include="Models\Coordinate.cs" />
     <Compile Include="Models\CurrentUser.cs" />
     <Compile Include="Models\Data.cs" />
@@ -7490,6 +7491,8 @@
     <Content Include="Views\Home\MisionVision.cshtml" />
     <Content Include="Views\Home\Maestrias.cshtml" />
     <Content Include="Views\Home\Especialidades.cshtml" />
+    <Content Include="Views\Admin\Event.cshtml" />
+    <Content Include="Views\Admin\AdminComunidadUniversitaria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Content\Admin\bower_components\moment\moment.d.ts" />
