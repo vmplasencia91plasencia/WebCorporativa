@@ -252,5 +252,10 @@ namespace WebCujae.Controllers
         {
             return View();
         }
+
+        public ActionResult AdminComunidadUniversitaria()
+        {
+            return View();
+        }
     }
 }
