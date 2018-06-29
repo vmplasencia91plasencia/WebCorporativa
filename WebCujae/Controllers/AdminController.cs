@@ -36,9 +36,31 @@ namespace WebCujae.Controllers
             ViewBag.Notice = notice;
             return View();
         }
+        
+        [HttpGet]
         public ActionResult AdminEvento()
         {
             return View();
+        }
+        
+        [HttpPost]
+        public ActionResult AdminEvento(Event even, IEnumerable<HttpPostedFileBase> files)
+        {
+            if (ModelState.IsValid)
+            {
+                List<Url> Urls = new List<Url>();
+
+                foreach (var file in files)
+                {
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        string archivo = Server.MapPath("~/Content/img/Uploads/" + (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + file.FileName).ToLower());
+                        Url url = new Url() { url = archivo };
+                        file.SaveAs(archivo);
+                    }
+                }
+            }
+                return View();
         }
         public ActionResult AdminPregrado()
         {

@@ -11,15 +11,17 @@ namespace WebCujae.Models
         [Key]
         public int EventId { get; set; }
 
-        [Required]
+
+
+        [Required(ErrorMessage = "Por favor introduzca el nombre del evento")]
         [Display(Name = "Nombre")]
         public string name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Por favor introduzca la descripción del evento")]
         [Display(Name = "Descripción")]
         public string description { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Por favor especifique la fecha del evento")]
         [Display(Name = "Fecha")]
         public DateTime time { get; set; }
 
