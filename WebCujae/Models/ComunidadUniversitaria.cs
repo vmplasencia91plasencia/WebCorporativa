@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,56 +8,58 @@ namespace WebCujae.Models
 {
     public class ComunidadUniversitaria
     {
-        int estudiantesPregrado;
-        int estudiantesPosgrado;
-        int estMaestrias;
-        int estEspecialidad;
-        int estDoctorado;
-        int estCursos;
+        [Key]
+        private int id { get; set; }
+
+        [Required]
+        private String curso { get; set; }
+        [Required]
+        public int estudiantesPregrado { get; set; }
+        [Required]
+        public int estudiantesPosgrado { get; set; }
+
+        public int[] integersArray { get; set; } // List of Integers
+        public int selectedInteger { get; set; } // Somewhere to store selected integer
+
+        [Required]
+        public int estMaestrias { get; set; }
+        [Required]
+        public int estEspecialidad { get; set; }
+        [Required]
+        public int estDoctorado { get; set; }
+        [Required]
+        public int estCursos { get; set; }
 
         //********************Est. por categoria docente
-        int cantDocentes;
-        int cantTitulares;
-        int cantAuxiliares;
-        int cantAsistentes;
-        int cantInstructores;
-
-        int cantNoDocentes;
+        
+        [Required]
+        public int cantTitulares { get; set; }
+        [Required]
+        public int cantAuxiliares { get; set; }
+        [Required]
+        public int cantAsistentes { get; set; }
+        [Required]
+        public int cantInstructores { get; set; }
+        [Required]
+        public int cantNoDocentes { get; set; }
 
         //*********************Est. de la Universidad
-        int cantCarreras;
-        int cantEspecialidades;
-        int cantDoctorados;
-        int cantMaestrias;
-        int cantLineasInv;
-        int cantProgInv;
-
-        public int EstudiantesPregrado { get => estudiantesPregrado; set => estudiantesPregrado = value; }
-        public int EstudiantesPosgrado { get => estudiantesPosgrado; set => estudiantesPosgrado = value; }
-        public int EstMaestrias { get => estMaestrias; set => estMaestrias = value; }
-        public int EstEspecialidad { get => estEspecialidad; set => estEspecialidad = value; }
-        public int EstDoctorado { get => estDoctorado; set => estDoctorado = value; }
-        public int EstCursos { get => estCursos; set => estCursos = value; }
-        public int CantDocentes { get => cantDocentes; set => cantDocentes = value; }
-        public int CantTitulares { get => cantTitulares; set => cantTitulares = value; }
-        public int CantAuxiliares { get => cantAuxiliares; set => cantAuxiliares = value; }
-        public int CantAsistentes { get => cantAsistentes; set => cantAsistentes = value; }
-        public int CantInstructores { get => cantInstructores; set => cantInstructores = value; }
-        public int CantNoDocentes { get => cantNoDocentes; set => cantNoDocentes = value; }
-        public int CantCarreras { get => cantCarreras; set => cantCarreras = value; }
-        public int CantEspecialidades { get => cantEspecialidades; set => cantEspecialidades = value; }
-        public int CantDoctorados { get => cantDoctorados; set => cantDoctorados = value; }
-        public int CantMaestrias { get => cantMaestrias; set => cantMaestrias = value; }
-        public int CantLineasInv { get => cantLineasInv; set => cantLineasInv = value; }
-        public int CantProgInv { get => cantProgInv; set => cantProgInv = value; }
-
-        public int totalEstudiantes()
-        {
-            return estudiantesPregrado + EstudiantesPosgrado;
-        }
-
+        [Required]
+        public int cantCarreras { get; set; }
+        [Required]
+        public int cantEspecialidades { get; set; }
+        [Required]
+        public int cantDoctorados { get; set; }
+        [Required]
+        public int cantMaestrias { get; set; }
+        [Required]
+        public int cantLineasInv { get; set; }
+        [Required]
+        public int cantProgInv { get; set; }
+        public int totalEstudiantes { get => totalEstudiantes ; set => totalEstudiantes = estudiantesPregrado + estudiantesPosgrado; }
+        public int totalEstudiantesPos { get => totalEstudiantesPos; set => totalEstudiantesPos = estMaestrias + estEspecialidad + estDoctorado + estCursos; } 
+        public int totalDocentes { get => totalDocentes; set => totalDocentes = cantTitulares + cantAuxiliares + cantAsistentes + cantInstructores; }
         
-
 
     }
 }
