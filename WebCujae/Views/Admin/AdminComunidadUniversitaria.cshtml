@@ -5,25 +5,57 @@
 }
 
 @section bodyAdmin{
-    <section class="content-header">
+<section class="content-header">
         <h1>
             Comunidad Universitaria
             <small>gestione las cifras de nuestra comunidad</small>
         </h1>
-    </section>
-    <section class="content">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="box">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Insertar cifras</h3>
+</section>
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Inserte las cifras</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    @using (Html.BeginForm("AdminComunidadUniversitaria", "Admin", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                    {
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    @Html.AntiForgeryToken()
+                                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                    <div class="form-group has-feedback">
+                                                        <div class="col-sm-2">
+                                                            @Html.Label("Pregrado:")
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            @Html.DropDownListFor(model => model.estudiantesPregrado, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="form-group has-feedback">
+                                                        <div class="col-sm-2">
+                                                            @Html.Label("Posgrado:")
+                                                        </div>
+
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
                 </div>
             </div>
-        </div>
-
-    </section>
-
-}
-
+                </section>
+            }
