@@ -49,16 +49,22 @@ namespace WebCujae.Controllers
             if (ModelState.IsValid)
             {
                 List<Url> Urls = new List<Url>();
-
+                
                 foreach (var file in files)
                 {
                     if (file != null && file.ContentLength > 0)
                     {
-                        string archivo = Server.MapPath("~/Content/img/Uploads/" + (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + file.FileName).ToLower());
+                        string archivo = Server.MapPath("~/Content/files/Uploads/" + (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + file.FileName).ToLower());
                         Url url = new Url() { url = archivo };
                         file.SaveAs(archivo);
+                        Urls.Add(url);                     
                     }
                 }
+                even.Urls = Urls;
+                ApplicationDbContext applicationDb = new ApplicationDbContext();
+                applicationDb.Event.Add(even);
+                applicationDb.SaveChanges();
+                ApplicationDbContext.Dispose();
             }
                 return View();
         }

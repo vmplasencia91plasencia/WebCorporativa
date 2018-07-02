@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace WebCujae.Models
 {
@@ -19,6 +20,7 @@ namespace WebCujae.Models
 
         [Required(ErrorMessage = "Por favor introduzca la descripción del evento")]
         [Display(Name = "Descripción")]
+        [AllowHtml]
         public string description { get; set; }
 
         [Required(ErrorMessage = "Por favor especifique la fecha del evento")]
