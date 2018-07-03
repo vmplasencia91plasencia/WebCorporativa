@@ -70,9 +70,9 @@
                                 <li class="user-header" style="background-color:#f9f9f9">
                                     <p>
                                         <address>
-                                            <strong> Nombre:</strong> WebCujae.Models.CurrentUser.Get.Name @WebCujae.Models.CurrentUser.Get.LastName<br>
-                                            <strong> CI:</strong>WebCujae.Models.CurrentUser.Get.NumberIdentification<br>
-                                            <strong> Correo:</strong>WebCujae.Models.CurrentUser.Get.Email<br>
+                                            <strong> Nombre:</strong> @WebCujae.Models.CurrentUser.Get.LastName<br>
+                                            <strong> CI:</strong>@WebCujae.Models.CurrentUser.Get.NumberIdentification<br>
+                                            <strong> Correo:</strong>@WebCujae.Models.CurrentUser.Get.Email<br>
                                             <strong> Hora:</strong> <label id="reloj" style="font-size:15px;"></label>
                                         </address>
                                     </p>
@@ -114,8 +114,6 @@
                     <li>@Html.ActionLink("Eventos", "AdminEvento", "Admin", null, null)</li>
                     <li>@Html.ActionLink("Pregrado", "AdminPregrado", "Admin", null, null)</li>
                     <li>@Html.ActionLink("Roles", "AdminRole", "Admin", null, null)</li>
-                    <li>@Html.ActionLink("Comunidad Universitaria", "AdminComunidadUniversitaria", "Admin", null, null)</li>
-
                     @if(ApplicationRoleManager.AsingRoleUser(CurrentUser.Get.UserId,ApplicationRoleManager.GetRoleNameByName("investigador"))|| ApplicationRoleManager.AsingRoleUser(CurrentUser.Get.UserId,ApplicationRoleManager.GetRoleNameByName("admin")))
                     {
                         <li class="treeview">
@@ -134,7 +132,7 @@
                     {
                         <li class="treeview">
                             <a href="#" value="disabled">
-                                <span>Investigación</span>
+                                <span>Premio</span>
                             </a>
                         </li>
                     }

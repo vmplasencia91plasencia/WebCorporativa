@@ -226,28 +226,17 @@
     <Compile Include="Migrations\201805301441301_new142.Designer.cs">
       <DependentUpon>201805301441301_new142.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806271736335_Event_Url_Added_27062018.cs" />
-    <Compile Include="Migrations\201806271736335_Event_Url_Added_27062018.Designer.cs">
-      <DependentUpon>201806271736335_Event_Url_Added_27062018.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModels.cs" />
     <Compile Include="Models\ApplicationRoleManager.cs" />
-    <Compile Include="Models\Autor.cs" />
-    <Compile Include="Models\CKEditors.cs" />
     <Compile Include="Models\ComunidadUniversitaria.cs" />
-    <Compile Include="Models\Coordinate.cs" />
     <Compile Include="Models\CurrentUser.cs" />
-    <Compile Include="Models\Data.cs" />
     <Compile Include="Models\Award.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Specialty.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Site.cs" />
-    <Compile Include="Models\Type.cs" />
-    <Compile Include="Models\Undergraduate.cs" />
     <Compile Include="Models\Url.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -7511,9 +7500,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805301441301_new142.resx">
       <DependentUpon>201805301441301_new142.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806271736335_Event_Url_Added_27062018.resx">
-      <DependentUpon>201806271736335_Event_Url_Added_27062018.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

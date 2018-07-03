@@ -36,20 +36,19 @@ namespace WebCujae.Controllers
             ViewBag.Notice = notice;
             return View();
         }
-        
         [HttpGet]
         public ActionResult AdminEvento()
         {
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult AdminEvento(Event even, IEnumerable<HttpPostedFileBase> files)
         {
             if (ModelState.IsValid)
             {
                 List<Url> Urls = new List<Url>();
-                
+
                 foreach (var file in files)
                 {
                     if (file != null && file.ContentLength > 0)
@@ -57,7 +56,7 @@ namespace WebCujae.Controllers
                         string archivo = Server.MapPath("~/Content/files/Uploads/" + (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + file.FileName).ToLower());
                         Url url = new Url() { url = archivo };
                         file.SaveAs(archivo);
-                        Urls.Add(url);                     
+                        Urls.Add(url);
                     }
                 }
                 even.Urls = Urls;
@@ -66,23 +65,12 @@ namespace WebCujae.Controllers
                 applicationDb.SaveChanges();
                 ApplicationDbContext.Dispose();
             }
-                return View();
+            return View();
         }
         public ActionResult AdminPregrado()
         {
             return View();
         }
-
-        [ValidateInput(false)]
-        [HttpPost]
-        public ActionResult AdminPregrado(CKEditors editors)
-        {
-            string text = editors.data;
-            //ViewData["data"] = text;
-            Session["data"] = text;
-            return RedirectToAction("Pregrado", "Home");
-        }
-
         [HttpPost]
         public ActionResult File(HttpPostedFileBase file)
         {
@@ -92,18 +80,6 @@ namespace WebCujae.Controllers
             file.SaveAs(Server.MapPath("~/Content/img/Uploads/" + archivo));
             return RedirectToAction("Index", "Admin");
         }
-
-        [ValidateInput(false)]
-        [HttpPost]
-        public ActionResult Index(CKEditors editors)
-        {
-            string text2 = editors.noticias;
-            string text1 = editors.data;
-            Session["noticias"] = text2;
-            Session["data"] = text1;
-            return RedirectToAction("Index", "Admin", new { notice = "Datos Guardados exitosamente!!!!!" });
-        }
-
         // GET: /Admin/Role
         [HttpGet]
         public ActionResult AdminRole()
@@ -274,11 +250,6 @@ namespace WebCujae.Controllers
             applicationDb.SaveChanges();
             ApplicationDbContext.Dispose();
             return View(result);
-        }
-
-        public ActionResult AdminComunidadUniversitaria()
-        {
-            return View();
         }
     }
 }
