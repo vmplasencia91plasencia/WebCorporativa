@@ -113,6 +113,7 @@
                     <li>@Html.ActionLink("Noticias", "Index", "Admin",null, null)</li>
                     <li>@Html.ActionLink("Eventos", "AdminEvento", "Admin", null, null)</li>
                     <li>@Html.ActionLink("Pregrado", "AdminPregrado", "Admin", null, null)</li>
+                    <li>@Html.ActionLink("Comunidad Universitaria", "adminComunidadUniversitaria", "Admin", null, null)</li>
                     <li>@Html.ActionLink("Roles", "AdminRole", "Admin", null, null)</li>
                     @if(ApplicationRoleManager.AsingRoleUser(CurrentUser.Get.UserId,ApplicationRoleManager.GetRoleNameByName("investigador"))|| ApplicationRoleManager.AsingRoleUser(CurrentUser.Get.UserId,ApplicationRoleManager.GetRoleNameByName("admin")))
                     {

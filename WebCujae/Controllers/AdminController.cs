@@ -251,5 +251,11 @@ namespace WebCujae.Controllers
             ApplicationDbContext.Dispose();
             return View(result);
         }
+
+        public ActionResult adminComunidadUniversitaria()
+        {
+
+            return View();
+        }
     }
 }
