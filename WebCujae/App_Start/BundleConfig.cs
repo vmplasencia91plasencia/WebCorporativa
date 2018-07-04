@@ -48,6 +48,7 @@ namespace WebCujae
                         "~/Content/Home/css/main.css",
                         "~/Content/Home/css/noticias.css",
                       "~/Content/Home/css/picture.css"));
+
         }
     }
 }
