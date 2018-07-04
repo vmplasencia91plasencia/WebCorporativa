@@ -111,7 +111,15 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">Men&uacute; principal</li>
                     <li>@Html.ActionLink("Noticias", "Index", "Admin",null, null)</li>
-                    <li>@Html.ActionLink("Eventos", "AdminEvento", "Admin", null, null)</li>
+                    <li class="treeview">
+                        <a href="#">
+                            <span>Eventos</span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li>@Html.ActionLink("Insertar-Evento", "AdminEvento", "Admin", null, null)</li>
+                            <li>@Html.ActionLink("Listar-Evento", "AdminListEvent", "Admin", null, null)</li>
+                        </ul>
+                    </li>
                     <li>@Html.ActionLink("Pregrado", "AdminPregrado", "Admin", null, null)</li>
                     <li>@Html.ActionLink("Roles", "AdminRole", "Admin", null, null)</li>
                     <li>@Html.ActionLink("Comunidad Universitaria", "AdminComunidadUniversitaria", "Admin", null, null)</li>

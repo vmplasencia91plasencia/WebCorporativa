@@ -107,18 +107,19 @@
             var input = document.getElementById('imageUploadFile');
             var output = document.getElementById('fileList');
             var cantLi = output.childElementCount;
-            
-            
 
             while (output.hasChildNodes())
             {
                 output.removeChild(output.firstChild);
             }
+
             for (var i = 0; i < input.files.length; ++i) {
                 var li = document.createElement("li");
+                
                 li.appendChild(document.createTextNode(input.files.item(i).name));
+                
                 output.appendChild(li);
-            }
+            } 
     }
     </script>
 }

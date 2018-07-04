@@ -1,0 +1,67 @@
+﻿@using WebCujae.Models
+@model List<Event>
+
+@{
+    ViewBag.Title = "AdminListEvent";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section bodyAdmin{
+    <section class="content-header">
+        <h1>
+            Listado de eventos registrados en el sistema
+            <small>gestion de eventos</small>
+        </h1>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Listado de eventos</h3>
+                    </div>
+                    <div class="box-body">
+                        <table id="example2" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th>Cantidad de recursos</th>
+                                    <th></th>
+                            </thead>
+                            <tbody>
+                                @foreach (var i in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @i.time
+                                        </td>
+                                        <td>
+                                            @i.name
+                                        </td>
+                                        <td>
+                                           @Html.Raw(i.description)
+                                        </td>
+                                        
+                                        <td>
+                                            @i.Urls
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink(" ", "DeleteEvent", new { id = i.EventId }, new { @class = "fa fa-remove fa-2x", @style = "margin-left:5px;color:#006633;" }) @Html.ActionLink("  ", "EditPremio", new { id = i.EventId }, new { @class = "fa fa-edit fa-2x", @style = "margin-left:5px;color:#006633;" })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <!-- /.box-footer-->
+            </div>
+        </div>
+    </section>
+}
+

@@ -33,6 +33,11 @@ namespace WebCujae.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Event>()
+                        .HasMany<Url>(g => g.Urls)
+                        .WithRequired(s => s.Event)
+                        .WillCascadeOnDelete();
+
             base.OnModelCreating(modelBuilder);
         }
         //public virtual DbSet<Site> Site { get; set; }
@@ -43,6 +48,8 @@ namespace WebCujae.Models
         public virtual DbSet<Event> Event { get; set; }
         public virtual DbSet<Url> Url { get; set; }
         //public virtual DbSet<Coordinate> Coordinate { get; set; }
+
+
 
         public static ApplicationDbContext Create()
         {

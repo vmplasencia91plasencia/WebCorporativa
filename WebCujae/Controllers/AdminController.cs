@@ -65,9 +65,33 @@ namespace WebCujae.Controllers
                 applicationDb.Event.Add(even);
                 applicationDb.SaveChanges();
                 ApplicationDbContext.Dispose();
+                return RedirectToAction("AdminEvento");
             }
                 return View();
         }
+
+        public ActionResult AdminListEvent()
+        {
+            ApplicationDbContext applicationDb = new ApplicationDbContext();
+            List<Event> result = new List<Event>();
+            result = applicationDb.Event.OrderBy(item => item.time).ToList();
+            applicationDb.Dispose();
+            return View(result);
+        }
+
+        public ActionResult DeleteEvent(int id)
+        {
+            ApplicationDbContext applicationDb = new ApplicationDbContext();
+            Event result = applicationDb.Event.Find(id);
+            //result.Urls.ToList();
+            //List<Url> urls = applicationDb.Url.Where(url => url.Event.EventId == id).ToList();
+           // result.Urls = urls;
+            applicationDb.Event.Remove(result);
+            applicationDb.SaveChanges();
+            ApplicationDbContext.Dispose();
+            return RedirectToAction("AdminListEvent");
+        }
+
         public ActionResult AdminPregrado()
         {
             return View();
