@@ -39,14 +39,15 @@
                                                     @Html.Label("Posgrado:")
                                                 </div>
                                                 <div class="col-md-3">
-                                                    @Html.DropDownListFor(model => model.estudiantesPregrado, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
+                                                    @Html.DropDownListFor(model => model.estudiantesPosgrado, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
                                                 </div>
                                                 <div class="col-sm-1">
                                                     @Html.Label("Total:")
                                                 </div>
                                                 <div class="col-sm-2">
-
-                                                    @Html.Label("Btn aqui")
+                                                    <div class="col-md-offset-5 col-md-10">
+                                                       <input type="submit" value="Guardar" class="btn btn-success" />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -74,40 +75,40 @@
                             <div class="row">
                               <div class="col-md-12">
                                    @using (Html.BeginForm("AdminComunidadUniversitaria", "Admin", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                                      {
-                                       <div class="container">
-                                          <div class="row">
-                                             <div class="col-xs-12">
-                                                  @Html.AntiForgeryToken()
-                                                  @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                                      <div class="form-group has-feedback">
-                                                           <div class="col-sm-1">
-                                                                @Html.Label("Maestría:")
-                                                           </div>
-                                                           <div class="col-md-3">
-                                                                @Html.DropDownListFor(model => model.estudiantesPregrado, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
-                                                           </div>
-                                                          <div class="col-sm-1">
-                                                              @Html.Label("Curso:")
-                                                          </div>
-                                                          <div class="col-md-3">
-                                                              @Html.DropDownListFor(model => model.estudiantesPregrado, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
-                                                          </div>
-                                                          <div class="col-sm-1">
-                                                              @Html.Label("Total:")
-                                                          </div>
-                                                          <div class="col-sm-2">
+                                   {
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                @Html.AntiForgeryToken()
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                <div class="form-group has-feedback">
+                                                    <div class="col-sm-1">
+                                                        @Html.Label("Maestría:")
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        @Html.DropDownListFor(model => model.estMaestrias, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                        @Html.Label("Curso:")
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        @Html.DropDownListFor(model => model.estCursos, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                        @Html.Label("Total:")
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <div class="col-md-offset-5 col-md-10">
+                                                            <input type="submit" value="Guardar" class="btn btn-success" />
+                                                        </div>
 
-                                                              @Html.Label("Btn aqui")
-                                                          </div>
-                                                                   
-                                                                    
-                                                      </div>
-                                             </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
-                                          
-                                       </div>
-                                      }
+                                        </div>
+                                    </div>
+                                   }
                               </div>
                             </div>
                             <div class="row">
@@ -124,13 +125,13 @@
                                                             @Html.Label("Doctorado:")
                                                         </div>
                                                         <div class="col-md-3">
-                                                            @Html.DropDownListFor(model => model.estudiantesPregrado, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
+                                                            @Html.DropDownListFor(model => model.estDoctorado, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
                                                         </div>
                                                         <div class="col-sm-1">
                                                             @Html.Label("Especialidad:")
                                                         </div>
                                                         <div class="col-md-3">
-                                                            @Html.DropDownListFor(model => model.estudiantesPregrado, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
+                                                            @Html.DropDownListFor(model => model.estEspecialidad, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
                                                         </div>
 
 
@@ -166,24 +167,28 @@
                                             @Html.AntiForgeryToken()
                                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                             <div class="form-group has-feedback">
-                                                <div class="col-sm-1">
+                                                <div class="col-sm-1" style= "margin-left: -16px">
                                                     @Html.Label("Maestrías:")
                                                 </div>
                                                 <div class="col-md-3">
-                                                    @Html.DropDownListFor(model => model.estudiantesPregrado, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2",@style = "margin-left: -4px"})
+                                                    @Html.DropDownListFor(model => model.cantMaestrias, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2",@style = "margin-left: -4px"})
                                                 </div>
-                                                <div class="col-sm-1" style= "margin-left: -24px">
+                                                <div class="col-sm-1" style= "margin-left: -16px">
                                                     @Html.Label("Líneas:")
                                                 </div>
                                                 <div class="col-md-3">
-                                                    @Html.DropDownListFor(model => model.estudiantesPregrado, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2", @style = "margin-left: -4px" })
+                                                    @Html.DropDownListFor(model => model.cantLineasInv, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2", @style = "margin-left: -4px" })
                                                 </div>
-                                                <div class="col-sm-1" style= "margin-left: -24px">
-                                                    @Html.Label("Especialidad:")
+                                                <div class="col-sm-1">
+                                                    @Html.Label("Total:")
                                                 </div>
-                                                <div class="col-md-3">
-                                                    @Html.DropDownListFor(model => model.estudiantesPregrado, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2", @style = "margin-left: -4px" })
+                                                <div class="col-sm-2">
+                                                    <div class="col-md-offset-5 col-md-10">
+                                                        <input type="submit" value="Guardar" class="btn btn-success" />
+                                                    </div>
+
                                                 </div>
+                                               
                                                 
                                             </div>
 
@@ -196,21 +201,37 @@
                                             @Html.AntiForgeryToken()
                                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                             <div class="form-group has-feedback">
-                                                <div class="col-sm-1">
+                                                <div class="col-sm-1" style= "margin-left: -16px">
                                                     @Html.Label("Doctorados:")
                                                 </div>
                                                 <div class="col-md-3" >
-                                                    @Html.DropDownListFor(model => model.estudiantesPregrado, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2", @style = "margin-left: -4px" })
+                                                    @Html.DropDownListFor(model => model.estDoctorado, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2", @style = "margin-left: -4px" })
                                                 </div>
-                                                <div class="col-sm-1" style= "margin-left: -24px">
+                                                <div class="col-sm-1" style= "margin-left: -16px">
                                                     @Html.Label("Programas:")
                                                 </div>
-                                                <div class="col-md-3">
-                                                    @Html.DropDownListFor(model => model.estudiantesPregrado, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2", @style = "margin - left: -4px" })
+                                                <div class="col-md-3" style= "margin-left: -4px" >
+                                                    @Html.DropDownListFor(model => model.estProgramas, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2", @style = "margin - left: -4px" })
                                                 </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
+
+                                   <div class="row">
+                                       @Html.AntiForgeryToken()
+                                       @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                       <div class="form-group has-feedback">
+                                           <div class="col-xs-12">
+                                               <div class="col-sm-1" style="margin-left: -16px">
+                                                   @Html.Label("Especialidad:")
+                                               </div>
+                                               <div class="col-md-3">
+                                                   @Html.DropDownListFor(model => model.estEspecialidad, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2", @style = "margin-left: -4px" })
+                                               </div>
+                                           </div>
+                                       </div>
+                                       </div>
                                 </div>
 
                           }
@@ -221,6 +242,139 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Opciones de estudio en pregrado</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @using (Html.BeginForm("AdminComunidadUniversitaria", "Admin", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            @Html.AntiForgeryToken()
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            <div class="form-group has-feedback">
+                                                <div class="col-sm-1">
+                                                    @Html.Label("Carreras:")
+                                                </div>
+                                                <div class="col-md-3">
+                                                    @Html.DropDownListFor(model => model.cantCarreras, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2", @style = "margin-left: -4px" })
+                                                </div>
+                                                <div class="col-sm-2" >
+
+                                                    <div class="form-group">
+                                                        <div class="col-md-offset-5 col-md-10">
+                                                            <input type="submit" value="Guardar" class="btn btn-success" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                           }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Trabajadores por categoria docente</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @using (Html.BeginForm("AdminComunidadUniversitaria", "Admin", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            @Html.AntiForgeryToken()
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            <div class="form-group has-feedback">
+                                                <div class="col-sm-1">
+                                                    @Html.Label("Titulares:")
+                                                </div>
+                                                <div class="col-md-3">
+                                                    @Html.DropDownListFor(model => model.cantTitulares, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    @Html.Label("Auxiliares:")
+                                                </div>
+                                                <div class="col-md-3">
+                                                    @Html.DropDownListFor(model => model.cantAuxiliares, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    @Html.Label("Total:")
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="col-md-offset-5 col-md-10">
+                                                        <input type="submit" value="Guardar" class="btn btn-success" />
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            @using (Html.BeginForm("AdminComunidadUniversitaria", "Admin", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            @Html.AntiForgeryToken()
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            <div class="form-group has-feedback">
+                                                <div class="col-sm-1">
+                                                    @Html.Label("Asistentes:")
+                                                </div>
+                                                <div class="col-md-3">
+                                                    @Html.DropDownListFor(model => model.cantAsistentes, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    @Html.Label("Instructores:")
+                                                </div>
+                                                <div class="col-md-3">
+                                                    @Html.DropDownListFor(model => model.cantInstructores, Enumerable.Range(0, (5000)).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), "-- Seleccione una cifra--", new { @class = "form-control select2" })
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
 
 
 

@@ -30,8 +30,10 @@ namespace WebCujae.Models
         [Required]
         public int estCursos { get; set; }
 
-        //********************Est. por categoria docente
-        
+        public int estProgramas { get; set; }
+
+        //********************Trabajadores por categoria docente
+
         [Required]
         public int cantTitulares { get; set; }
         [Required]
